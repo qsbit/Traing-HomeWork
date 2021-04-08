@@ -1,0 +1,33 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: springboot
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp
+    static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+  datasource:
+    url: jdbc:mysql://localhost:3306/jungle_database?characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    database: mysql
+    generate-ddl: true #自动生成相应的表
+    show-sql: true #显示sql
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.MySQL5InnoDBDialect
+mybatis:
+  mapper-locations: classpath:/mapper/**.xml
+logging:
+  level:
+    com_wwj.mapper: debug
